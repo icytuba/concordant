@@ -150,4 +150,7 @@ export default RegisterForm;
 
 //need to add api call?? to see if email already exists (on submit?)
 //need to make register button disabled when page is laoded and no changes to form & 0 inputs
-//try isValid
+//try isValid and maybe don't worry about disabling button but instead just changling the submit handler
+
+// reeeeally need to refactor/modularize but not sure about most efficient way yet
+
