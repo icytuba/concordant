@@ -2,13 +2,13 @@ const UserController = require('../controllers/user.controller');
 const { authenticate } = require('../config/jwt.config');
 
 module.exports = app => {
-    app.get('/api/users', authenticate, UserController.getAllUsers);
+    app.get('/api/users', authenticate, UserController.getAllUsers); //tested
     app.post('/api/users/register', UserController.register); //tested
-    app.post('/api/users/login', UserController.login);
-    app.post('/api/users/logout', authenticate, UserController.logout);
+    app.post('/api/users/login', UserController.login); //tested
+    app.post('/api/users/logout', authenticate, UserController.logout); //tested
     app.get('/api/users/:id', authenticate, UserController.getOneUser); //tested
     app.put('/api/users/:id', authenticate, UserController.updateUser); //tested BUT can't hash changed password yet
-    app.delete('/api/users/:id', authenticate, UserController.deleteUser);
+    app.delete('/api/users/:id', authenticate, UserController.deleteUser); //tested
     app.get('/api/users/posts/:userId', authenticate, UserController.getAllPostsByUser); //tested
 }
 
