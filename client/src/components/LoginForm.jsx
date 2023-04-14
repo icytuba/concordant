@@ -34,7 +34,7 @@ const LoginForm = (props) => {
     };
 
     return (
-        <div>
+        <div className="text-center">
             <h3>Login</h3>
             <form className="form col-md-4 mx-auto" onSubmit={submitHandler}>
                 <div className="form-group mt-3">

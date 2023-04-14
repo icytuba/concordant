@@ -30,13 +30,13 @@ const PostForm = (props) => {
             }
         }
         if(e.target.name == "date")
-            if(e.target.value.length < 0){
+            if(e.target.value == null){
                 setErrors({...errors, date: "Date is required"});
             }
             else{
                 setErrors({...errors, date: ""});
             }
-        if(e.target.name == "duration")
+        if(e.target.name == "duration") //if not a number
             if(e.target.value.length < 1){
                 setErrors({...errors, duration: "Duration is required"});
             }
@@ -58,12 +58,14 @@ const PostForm = (props) => {
         });
         console.log(postInfo)
         handleValidations(e);
-        console.log(errors);
-        console.log(props.userId);
+        console.log(errors);;
     };
     
     const submitHandler = (e) => {
         e.preventDefault();
+        if(postInfo.date == ""){ //should I put them all here in order? if !description if !date if !duration ???
+            return (setErrors({...errors, date: "Date is required"}))
+        }
         axios.post('http://localhost:8000/api/posts', postInfo, {withCredentials: true})
             .then(res => console.log(res))
             .catch(err => console.log(err));
@@ -72,19 +74,22 @@ const PostForm = (props) => {
     return (
         <div className="p-2 px-5 border">
             <form onSubmit={submitHandler}>
-                <p className="mb-1">I'm working on</p>
-                <textarea className="form-control mb-3" rows="2" name="description" onChange={changeHandler}></textarea>
+                <p>I'm working on</p>
+                { errors.description ? <span className="text-danger">{errors.description}</span> : ""}
+                <textarea className="form-control mb-3 mt-2" rows="2" name="description" onChange={changeHandler}></textarea>
                 <div className="d-flex justify-content-between flex-wrap">
                     <div>
                         <div className="d-inline-block">
                             <label className="me-1 mb-1">on</label>
-                            <input type="date" name="date" onChange={changeHandler} className="me-3 mb-3"/>
+                            <input type="date" name="date" onChange={changeHandler} className="me-3 mb-3" />
                         </div>
                         <div className="d-inline-block">
                             <label className="me-1 mb-1" htmlFor='duration'>for</label>
-                            <input type="number" name="duration" onChange={changeHandler} className="me-1 mb-1"/> 
+                            <input type="text" name="duration" onChange={changeHandler} className="me-1 mb-1" size="3" /> 
                             <label htmlFor='duration'className="mb-3 me-2">hours</label>
                         </div>
+                        { errors.date ? <span className="text-danger">{errors.date}</span> : ""}
+                        { errors.duration ? <span className="text-danger">{errors.duration}</span> : ""}
                     </div>
                     <button type="submit" className="btn btn-outline-secondary ms-auto mb-3 align-self-end">Post Invitation</button>
                 </div>
