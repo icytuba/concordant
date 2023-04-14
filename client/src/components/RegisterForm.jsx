@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { UserContext } from '../context/UserContext';
 
 const RegisterForm = (props) => {
     const navigate = useNavigate();
-
+    const {setUserId} = useContext(UserContext);
     const [userInfo, setUserInfo] = useState({
         firstName: "",
         lastName: "",
@@ -15,7 +16,7 @@ const RegisterForm = (props) => {
 
     const [errors, setErrors] = useState({});
     const [apiErrors, setApiErrors] = useState();
-    console.log(errors==false);
+
     const handleValidations = (e) => {
         if(e.target.name == "firstName"){
             if(e.target.value.length < 1){
@@ -86,27 +87,21 @@ const RegisterForm = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/users/register', userInfo, {withCredentials: true})
             .then(res => {
-                console.log(res);
+                console.log(res.data.user._id);
+                setUserId(res.data.user._id);
                 navigate('/dashboard');
             })
             .catch(err => {
                 console.log(err);
-                // const errorResponse = err.response.data.errors;
-                // const errorArr = [];
-                // for(const key of Object.keys(errorResponse)){
-                //     errorArr.push(errorResponse[key].message)
-                // }
-                // console.log("errorArr:", errorArr);
-                // setApiErrors(errorArr);
-                setApiErrors(err.response.data.message);
-                console.log(apiErrors);
+                if (err.response.data.message == "Email already exists") //this could be bad practice but it's the only backend
+                setApiErrors(err.response.data.message);                // error I care about showing, and if I dont do == then
+                console.log(apiErrors);                                 // all the errors show when I have an empty, untouched form and submit
             })
     };
     
     return (
         <div>
             <h3>Register</h3>
-            {/* {errors.firstName ? <p>{errors.firstName}</p> : null} */}
             <form className="form col-md-4 mx-auto" onSubmit={submitHandler}>
                 <div className="form-group mt-3">
                     { errors.firstName ? <span className="text-danger">{errors.firstName}</span> : "" }
@@ -133,11 +128,12 @@ const RegisterForm = (props) => {
                 { 
                 errors.firstName || errors.lastName || errors.email || errors.password || errors.confirmPassword || errors == {}
                     ?
-                    <button className="btn btn-outline-primary form group mt-3" disabled>Register</button>
+                    <button type="submit" className="btn btn-outline-primary form group mt-3" disabled>Register</button>
                     : 
-                    <button className="btn btn-outline-primary form-group mt-3">Register</button>
+                    <button type="submit" className="btn btn-outline-primary form-group mt-3">Register</button>
                 }
             </form>
+            <p className="mt-2 mb-0">Already have an account?</p><Link to='/login'> Log in</Link>
         </div>
     );
 };

@@ -14,6 +14,7 @@ const PostSchema = new mongoose.Schema({
     duration: {
         type: Number,
         required: [true, "Duration is required"],
+        min: [0, "Duration cannot be less than 0"],
         max: [24, "Duration cannot exceed 24 hours"]
     },
     creator: {

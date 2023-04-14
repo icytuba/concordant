@@ -6,6 +6,7 @@ module.exports = app => {
     app.post('/api/users/register', UserController.register); //tested
     app.post('/api/users/login', UserController.login); //tested
     app.post('/api/users/logout', authenticate, UserController.logout); //tested
+    app.get('/api/users/auth', authenticate, UserController.loggedInUserId);
     app.get('/api/users/:id', authenticate, UserController.getOneUser); //tested
     app.put('/api/users/:id', authenticate, UserController.updateUser); //tested BUT can't hash changed password yet
     app.delete('/api/users/:id', authenticate, UserController.deleteUser); //tested
