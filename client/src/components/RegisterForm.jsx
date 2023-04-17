@@ -1,11 +1,11 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
 const RegisterForm = (props) => {
     const navigate = useNavigate();
-    const {setUserId} = useContext(UserContext);
+    const {userId, setUserId} = useContext(UserContext);
     const [userInfo, setUserInfo] = useState({
         firstName: "",
         lastName: "",
@@ -13,9 +13,15 @@ const RegisterForm = (props) => {
         password: "",
         confirmPassword: ""
     });
-
     const [errors, setErrors] = useState({});
     const [apiErrors, setApiErrors] = useState();
+
+    useEffect(() => {
+        if (userId){
+            navigate('/dashboard')
+        }
+    }, [])
+
 
     const handleValidations = (e) => {
         if(e.target.name == "firstName"){

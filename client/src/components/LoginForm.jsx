@@ -1,16 +1,21 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
 const LoginForm = (props) => {
     const navigate = useNavigate();
-    const {setUserId} = useContext(UserContext);
+    const {userId, setUserId} = useContext(UserContext);
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: "",
     });
     const [apiError, setApiError] = useState();
+
+    // useEffect(() => {
+    //     axios.get()
+    //     }
+    // }, [])
 
     const changeHandler = (e) => {
         setUserInfo({
@@ -24,7 +29,8 @@ const LoginForm = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/users/login', userInfo, {withCredentials: true})
             .then(res => {
-                console.log(res)
+                console.log(res); //remove this to keep info away from public
+                setUserId(res.data.user._id);
                 navigate('/dashboard');
             })
             .catch(err => {
