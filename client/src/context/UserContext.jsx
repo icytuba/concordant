@@ -6,20 +6,7 @@ export const UserContext = createContext();
 export const UserProvider = (props) => {
     const [userId, setUserId] = useState();
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isAuthorized, setIsAuthorized] = useState(false);
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:8000/api/users/auth', {withCredentials:true})
-    //         .then(res => {
-    //             setUserId(res.data._id)})
-    //         .then(res => {
-    //             setIsLoaded(true);
-    //         })
-    //         .catch(err => {
-    //             console.log(err, "context auth ran but error")
-    //             setIsLoaded(true);
-    //         });
-    // }, [])
+    // const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
         const verifyUserLoggedIn = async () => {

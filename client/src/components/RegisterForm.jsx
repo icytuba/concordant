@@ -106,7 +106,7 @@ const RegisterForm = (props) => {
     };
     
     return (
-        <div className="text-center">
+        <div className="text-center logreg-background">
             <h3>Register</h3>
             <form className="form col-md-4 mx-auto" onSubmit={submitHandler}>
                 <div className="form-group mt-3">

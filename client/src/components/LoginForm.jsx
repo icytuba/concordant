@@ -12,10 +12,11 @@ const LoginForm = (props) => {
     });
     const [apiError, setApiError] = useState();
 
-    // useEffect(() => {
-    //     axios.get()
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (userId){
+            navigate('/dashboard')
+        }
+    }, [])
 
     const changeHandler = (e) => {
         setUserInfo({

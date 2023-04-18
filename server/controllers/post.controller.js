@@ -33,6 +33,3 @@ module.exports = {
             .catch(err => res.status(400).json(err))
     }
 }
-
-// pass cookie with each? look up how and if this is necessary (more specifically, if this is where I should do it)
-// ^ automatic via cookie-parser?
