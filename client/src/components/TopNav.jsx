@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import axios from 'axios';
 
+
 const TopNav = (props) => {
     const {userId, setUserId} = useContext(UserContext);
     const navigate = useNavigate();
@@ -18,8 +19,9 @@ const TopNav = (props) => {
     }
 
     return(
-        <div className="d-flex flex-row justify-content-between p-4">
-            <h1 className='text-muted'>Concordant</h1>
+        <div className="nav d-flex flex-row justify-content-between p-4 pb-0">
+            {/* <h1 className='nav-header' onClick={e=>{navigate('/')}}>Concordant</h1> */}
+            <h1><Link to='/'>Concordant</Link></h1>
             {
             userId
             ?

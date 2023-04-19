@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
@@ -106,27 +106,27 @@ const RegisterForm = (props) => {
     };
     
     return (
-        <div className="text-center logreg-background">
+        <div className="text-center mt-4 col-md-3 mx-auto reg-card p-2 px-4">
             <h3>Register</h3>
-            <form className="form col-md-4 mx-auto" onSubmit={submitHandler}>
+            <form className="form mx-auto" onSubmit={submitHandler}>
                 <div className="form-group mt-3">
-                    { errors.firstName ? <span className="text-danger">{errors.firstName}</span> : "" }
+                    { errors.firstName ? <span>{errors.firstName}</span> : "" }
                     <input type="text" name="firstName" className="form-control" placeholder="First Name" onChange={(e)=>changeHandler(e)}/>
                 </div>
                 <div className="form-group mt-3">
-                    { errors.lastName ? <span className="text-danger">{errors.lastName}</span> : "" }
+                    { errors.lastName ? <span>{errors.lastName}</span> : "" }
                     <input type="text" name="lastName" className="form-control" placeholder="Last Name" onChange={(e)=>changeHandler(e)}/>
                 </div>
                 <div className="form-group mt-3">
-                    { errors.email ? <span className="text-danger">{errors.email}</span> : "" }
+                    { errors.email ? <span>{errors.email}</span> : "" }
                     <input type="email" name="email" className="form-control" placeholder="Email" onChange={(e)=>changeHandler(e)}/>
                 </div>
                 <div className="form-group mt-3">
-                    { errors.password ? <span className="text-danger">{errors.password}</span> : "" }
+                    { errors.password ? <span>{errors.password}</span> : "" }
                     <input type="password" name="password" className="form-control" placeholder="Password" onChange={(e)=>changeHandler(e)}/>
                 </div>
                 <div className="form-group mt-3">
-                    { errors.confirmPassword ? <span className="text-danger">{errors.confirmPassword}</span> : "" }
+                    { errors.confirmPassword ? <span>{errors.confirmPassword}</span> : "" }
                     <input type="password" name="confirmPassword" className="form-control" placeholder="Confirm Password" onChange={(e)=>changeHandler(e)}/>
                 </div> 
                 { apiErrors ? <div className="text-danger mt-1">{apiErrors}</div> : "" }

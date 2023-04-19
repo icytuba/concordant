@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-.logreg-background{
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 115, 0, 0.5),
-    rgba(255, 191, 0, 0.5)
-  ), url("./media/background.png");
-
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;

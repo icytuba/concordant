@@ -107,20 +107,20 @@ const PostForm = (props) => {
     }
 
     return (
-        <div className="p-4 border">
+        <div className="p-4 form-card">
             <form onSubmit={(e) => {submitHandler(e, submitType)}}>
                 <p>I'm working on</p>
                 { errors.description ? <span className="text-danger">{errors.description}</span> : ""}
-                <textarea className="form-control mb-3 mt-2" rows="2" name="description" onChange={changeHandler} value={postInfo.description}></textarea>
+                <textarea className="form-control post-input mb-3 mt-2" rows="2" name="description" onChange={changeHandler} value={postInfo.description}></textarea>
                 <div className="d-flex justify-content-between flex-wrap">
                     <div>
                         <div className="d-inline-block">
                             <label className="me-2 mb-1">on</label>
-                            <input type="date" name="date" onChange={changeHandler} value={postInfo.date} className="me-3 mb-3" />
+                            <input type="date" name="date" onChange={changeHandler} value={postInfo.date} className="post-input me-3 mb-3" />
                         </div>
                         <div className="d-inline-block">
                             <label className="me-2 mb-1" htmlFor='duration'>for</label>
-                            <input type="text" name="duration" onChange={changeHandler} value={postInfo.duration} className="me-2 mb-1" size="2" /> 
+                            <input type="text" name="duration" onChange={changeHandler} value={postInfo.duration} className="post-input me-2 mb-1" size="2" /> 
                             <label htmlFor='duration'className="mb-3 me-2">hours</label>
                         </div>
                         {/* { errors.date ? <span className="text-danger">{errors.date}</span> : ""}
@@ -131,7 +131,11 @@ const PostForm = (props) => {
                             { errors.date ? <p className="text-danger m-0">{errors.date}</p> : ""}
                             { errors.duration ? <p className="text-danger m-0">{errors.duration}</p> : ""}
                         </div>
-                        <button type="submit" className="btn btn-outline-secondary ms-auto mb-3 align-self-end">Post Invitation</button>
+                        {
+                        submitType == "create"
+                        ? <button type="submit" className="btn btn-outline-secondary ms-auto mb-3 align-self-end">Post Invitation</button>
+                        : <button type="edit" className="btn btn-outline-secondary ms-auto mb-3 align-self-end">Edit Invitation</button>
+                        }
                     </div>
                 </div>
             </form>

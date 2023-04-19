@@ -45,7 +45,7 @@ const AllPostsByAllUsers = (props) => {
                 return(
                     <div className="card mt-3 mb-3 p-2" key={post._id}>
                         <p className="card-body">
-                            {name} is working on {description} on {date} for {duration} hours.
+                            <span className="bold">{name}</span> is working on <span className="bold">{description}</span> on <span className="bold">{date}</span> for <span className="bold">{duration}</span> hours.
                         </p>
                         {
                         creator._id == userId 

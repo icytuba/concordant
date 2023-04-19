@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto+Mono&family=Comfortaa&family=IBM+Plex+Sans+Arabic:wght@300&family=Merriweather:ital,wght@0,400;1,300&family=Nanum+Gothic&family=Nova+Oval&family=Neuton:wght@200&family=Playfair+Display:ital,wght@0,500;1,400&family=Quicksand&family=Tajawal:wght@500&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'EB Garamond', serif;
+  color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +11,130 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.logreg-background{
+  background-image:  url("./media/background.png");
+  background-position: -100px -400px;
+}
+
+
+.nav {
+  background-color: #13504ba5;
+}
+
+.nav-header {
+  color: white;
+  /* font-family: 'IBM Plex Sans Arabic', sans-serif; */
+  font-family: 'Merriweather', serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  /* font-family: 'Quicksand', sans-serif; */
+  
+  font-weight: 100;
+  font-size: 210%;
+  text-decoration: none;
+}
+  h1 a{
+    text-decoration: none;
+  }
+
+
+.form-control {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: white;
+}
+  .form-control:focus {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: none;
+    color:white;
+  }
+
+form {
+  color: white;
+}
+
+.form-control::placeholder {
+  color: rgba(227, 227, 227, 0.895);
+}
+
+.btn{
+  /* background-color: #3C524F; */
+  color: white;
+  box-shadow: none;
+  border: none;
+  background-color: #3c4652;
+}  
+  .btn:focus{
+    background-color: #3C524F;
+
+  }
+  .btn:disabled{
+    color: white;
+    border: solid white;
+    }
+
+  .btn-outline-primary {
+    box-shadow: none;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #3C524F;
+    box-shadow: none;
+  }
+  .btn-outline-primary.active {
+    background-color: #3C524F;
+  }
+
+  .btn-outline-warning {
+    background-color: #355753
+  }
+    .btn-outline-warning:hover{
+      background-color: #243a38;
+      color: white;
+    }
+  
+  .btn-outline-danger{
+    background-color: #52483c
+  }
+
+
+  a {
+    color:white
+  }
+
+.reg-card {
+  background-color: #7a58497b;
+  border-radius: 3%;
+}
+
+.card {
+  background-color: #7a58499b;
+  color: white
+}
+
+.form-card{
+  background-color: #715848d0;
+  border: none;
+  border-radius: 2%;
+  margin-top: 20px;
+}
+
+p.text-danger{
+  color: #C69A93
+}
+
+.post-input{
+  background: rgba(91, 110, 119, 0.377);
+  border: none;
+  color: white;
+}
+
+.dashboard-bg{
+  background-image:  url("./media/background.png");
+  background-position: -100px -400px;
+}
+
+.bold {
+  font-weight: bold;
 }

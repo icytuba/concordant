@@ -41,16 +41,16 @@ const LoginForm = (props) => {
     };
 
     return (
-        <div className="text-center">
+        <div className="text-center mt-4 col-md-3 mx-auto reg-card p-2 px-4">
             <h3>Login</h3>
-            <form className="form col-md-4 mx-auto" onSubmit={submitHandler}>
+            <form className="form mx-auto" onSubmit={submitHandler}>
                 <div className="form-group mt-3">
                     <input type="email" name="email" className="form-control" placeholder="Email" onChange={(e)=>changeHandler(e)}/>
                 </div>
                 <div className="form-group mt-3">
                     <input type="password" name="password" className="form-control" placeholder="Password" onChange={(e)=>changeHandler(e)}/>
                 </div>
-                { apiError ? <div className="text-danger mt-1">{apiError}</div> : "" }
+                { apiError ? <div className="mt-1">{apiError}</div> : "" }
                 <button type="submit" className="btn btn-outline-primary form-group mt-3">Log In</button>
             </form>
             <p className="mt-2 mb-0">Don't have an account?</p><Link to='/'> Register</Link>

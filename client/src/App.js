@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import TopNav from './components/TopNav';
 import RegisterForm from './components/RegisterForm';
@@ -10,7 +10,18 @@ import PageNotFound from './components/PageNotFound';
 import EditPost from './components/EditPost';
 
 function App() {
-
+  const location = useLocation();
+  const isRegistrationPage = location.pathname === '/';
+  const isLoginPage = location.pathname === '/login';
+  useEffect(() => {
+      if (isRegistrationPage || isLoginPage){
+          document.body.classList.add('logreg-background');
+      }
+      else{
+          document.body.classList.remove('logreg-background')
+          document.body.classList.add('dashboard-bg')
+      }
+  },[isRegistrationPage])
   return (
     <div className="">
       <UserProvider>

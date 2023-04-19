@@ -28,14 +28,14 @@ const EditPost = (props) => {
     }, []);
 
     return(
-        <>
+        <div className='mx-auto col-md-8'>
         {
             !isLoaded
             ? <></>
             : <PostForm submitType="edit" postBody={existingPostInfo} />
             
         }
-        </>
+        </div>
     )
 }
 
