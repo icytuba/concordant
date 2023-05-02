@@ -100,8 +100,12 @@ form {
 
 
   a {
-    color:white
+    color:white;
+    text-decoration: none;
   }
+    .underline {
+      text-decoration: underline;
+    }
 
 .reg-card {
   background-color: #7a58497b;

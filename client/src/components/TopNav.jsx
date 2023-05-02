@@ -25,8 +25,8 @@ const TopNav = (props) => {
             {
             userId
             ?
-            <div>
-                {/* <button className="btn btn-outline-secondary me-2" onClick={()=>{navigate('/profile')}}>My Profile</button> */}
+            <div className='mb-0'>
+                <button className="btn btn-outline-secondary me-2" onClick={(e)=>{navigate(`/profile/${userId}`)}}>My Profile</button>
                 <button className="btn btn-outline-secondary" onClick={(e)=>{handleLogout(e)}}>Logout</button>
             </div>
             : null }

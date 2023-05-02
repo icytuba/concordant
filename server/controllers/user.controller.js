@@ -69,7 +69,7 @@ module.exports = {
             const user = await jwt.decode(req.cookies.usertoken, secret);
             res.json(user);
         } catch(err) {
-            res.status(400).json(err) //403 invalid roken
+            res.status(400).json(err) //403 invalid token
         }
     },
     /* 

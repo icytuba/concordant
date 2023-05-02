@@ -139,7 +139,7 @@ const RegisterForm = (props) => {
                     <button type="submit" className="btn btn-outline-primary form-group mt-3">Register</button>
                 }
             </form>
-            <p className="mt-2 mb-0">Already have an account?</p><Link to='/login'> Log in</Link>
+            <p className="mt-2 mb-0">Already have an account?</p><Link to='/login'><span className="underline">Log in</span></Link>
         </div>
     );
 };

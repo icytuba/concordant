@@ -53,7 +53,7 @@ const LoginForm = (props) => {
                 { apiError ? <div className="mt-1">{apiError}</div> : "" }
                 <button type="submit" className="btn btn-outline-primary form-group mt-3">Log In</button>
             </form>
-            <p className="mt-2 mb-0">Don't have an account?</p><Link to='/'> Register</Link>
+            <p className="mt-2 mb-0">Don't have an account?</p><Link to='/'><span className="underline">Register</span></Link>
         </div>
     )
 }

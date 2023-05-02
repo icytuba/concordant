@@ -1,5 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useContext, useEffect} from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
@@ -44,9 +44,15 @@ const AllPostsByAllUsers = (props) => {
                 let name = creator.firstName + " " + creator.lastName;
                 return(
                     <div className="card mt-3 mb-3 p-2" key={post._id}>
-                        <p className="card-body">
-                            <span className="bold">{name}</span> is working on <span className="bold">{description}</span> on <span className="bold">{date}</span> for <span className="bold">{duration}</span> hours.
-                        </p>
+                        <div className="card-body">
+                            <h5 className="bold"><Link to={`/profile/${creator._id}`}>{name}</Link></h5>
+                            <p>
+                                is working on <span className="bold">{description}</span> 
+                            </p>
+                            <p>
+                                on <span className="bold">{date}</span> for <span className="bold">{duration}</span> hours.
+                            </p>
+                        </div>
                         {
                         creator._id == userId 
                         ? 

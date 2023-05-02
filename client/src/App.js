@@ -8,6 +8,8 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import PageNotFound from './components/PageNotFound';
 import EditPost from './components/EditPost';
+import AllPostsOneUser from './components/AllPostsOneUser';
+
 
 function App() {
   const location = useLocation();
@@ -30,6 +32,7 @@ function App() {
           <Route path='/' element={<RegisterForm/>} />
           <Route path='/login' element={<LoginForm/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
+          <Route path='/profile/:userIdOfPage' element={<AllPostsOneUser/>} />
           <Route path='/posts/edit/:post_id' element={<EditPost/>} />
           <Route path='/*' element={<PageNotFound/>}/>
         </Routes>
